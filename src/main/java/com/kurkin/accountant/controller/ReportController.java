@@ -1,13 +1,13 @@
 package com.kurkin.accountant.controller;
 
 import com.kurkin.accountant.model.Report;
-import com.kurkin.accountant.model.ReportDAO;
 import com.kurkin.accountant.repository.ReportRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.validation.Valid;
 
 
 @RestController
@@ -32,10 +32,13 @@ public class ReportController {
     }
 
     @PostMapping("insertNewTrack")
-    public void insertNewTrack(@Validated Report report) {
-        var dao = new ReportDAO();
-        dao.setReport(report);
-        repository.save(dao);
+    public void insertNewTrack(@Valid Report report) {
+        repository.save(report);
+
+    }
+    @PostMapping("insertNewUser")
+    public void insertNewUser(){
+
     }
 }
 

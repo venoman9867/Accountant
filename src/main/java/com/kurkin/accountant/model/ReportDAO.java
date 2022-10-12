@@ -5,7 +5,7 @@ import javax.persistence.*;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity(name = "Report")
-public class ReportDAO {
+public class ReportDAO{
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
